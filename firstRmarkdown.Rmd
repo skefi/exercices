@@ -9,6 +9,7 @@ output:
     fig_height: 6
     fig_caption: true
 date: "2022-11-29"
+bibliography: biblio.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -51,5 +52,70 @@ DT::datatable(iris,
 
 #cars %>% head(5) %>% 
 ```
+## References
+
+Note: we can add ref with bibtex (use Zotero!). 
+Ref are added by doing [@kefi_early_2014]. 
 
 
+Zotero style bibliography to find journal styles for ref. 
+then we save the csl file in the folder. 
+then we add this in the yaml (at the start of the doc): "csl: science.csl"
+Otherwise, by default it is the Rmarkdown style. 
+
+## Package rticle
+
+R package that provides templates for articles. 
+<https://github.com/rstudio/rticles>
+
+## Websites
+
+Use package blogdown to build a website. 
+
+## Create a simple website 
+
+create a new project 
+ditill website
+click all left ooptions
+on the right: click hugo if not install (other unclixked)
+Choose hugo theme: go to hugo website gohugo.io
+e.g. beautiful hugo theme
+find link to github, clik on it (github repo)
+copy the github account and name of repo and paste it in the theme in R eg halogenica/beautifulhugo
+--> creates everything we need
+
+in console: blogdown::serve_site()
+I get a localhost adddress which can be pasted in firefox to see the page
+
+blogdown::build_site()
+creates the html files
+
+now we want to put this webpage on github: 
+(after having initiated git in the project, ie 'git init' in the folder, 'git add .', 'git commit - m "init"')
+
+delte the gitignore
+rcompedndium::add_to_gitignore
+
+usethis::use_github()
+pushed the project to github
+
+pour le déployer, 
+dir.create(".github.workflows", recursive=TRUE)
+then create textfile blogdown.yml (and copy texte from another website but change name)
+
+commit the changes
+git add., git commit, git push
+
+on github, if we now go to "actions" (onglet), there should be something (the setup of the server). Cliquer sur setup
+(dans onglet "settings", pages: branch: main, /root
+we need to have index.html at the root of the folder)
+
+blogdown creates a new branch and knits the index.html --> branch is gh-pages (in settings/pages)
+and we leave root
+
+The website is now available at https//skefi.github.io/mywebsite
+
+
+Bookdown.org 
+
+# Bibliography
